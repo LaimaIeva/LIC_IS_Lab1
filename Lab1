@@ -202,3 +202,4 @@ b  = b+eta*e;
 	% calculate the total error for these 5 inputs 
 	e = abs(e1) + abs(e2) + abs(e3) + abs(e4) + abs(e5);
 end
+
