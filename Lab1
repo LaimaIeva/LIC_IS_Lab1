@@ -69,7 +69,7 @@ x2=[metric_A1 metric_A2 metric_A3 metric_P1 metric_P2];
 P=[x1;x2];
 
 %Desired output vector
-d=[-1;-1;-1;1;1]; % <- ČIA ANKSČIAU BUVO KLAIDA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+d=[1;1;1;-1;-1]; % <- ČIA ANKSČIAU BUVO KLAIDA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 %% train single perceptron with two inputs and one output
 
@@ -187,9 +187,26 @@ e5 = d(5) - y;
 %   calculate error for current example
 
 %   update parameters using current inputs ant current error
-w1 = w1+0.25*e*x1;
-w2 = w2+0.25*e*x2;
-b  = b+0.25*e;
+eta=0.25;
+w1 = w1+eta*e1*x1(1);
+w2 = w2+eta*e1*x2(1);
+b  = b+eta*e1;
+
+w1 = w1+eta*e2*x1(2);
+w2 = w2+eta*e2*x2(2);
+b  = b+eta*e2;
+
+w1 = w1+eta*e3*x1(3);
+w2 = w2+eta*e3*x2(3);
+b  = b+eta*e3;
+
+w1 = w1+eta*e4*x1(4);
+w2 = w2+eta*e4*x2(4);
+b  = b+eta*e4;
+
+w1 = w1+eta*e5*x1(5);
+w2 = w2+eta*e5*x2(5);
+b  = b+eta*e5;
 % 
 %   Test how good are updated parameters (weights) on all examples used for training
 %   calculate outputs and errors for all 5 examples using current values of the parameter set {w1, w2, b}
